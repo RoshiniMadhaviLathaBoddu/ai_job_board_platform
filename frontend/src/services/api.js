@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api', // Update with your backend URL
+  baseURL: 'https://ai-job-board-platform.onrender.com/api', // Update with your backend URL
 });
 
 // Add JWT token to headers if present
