@@ -5,16 +5,8 @@ function Jobs() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const data = await getAllJobs();
-        setJobs(data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchJobs();
-  }, []);
+  API.get('/jobs').then(res => setJobs(res.data)).catch(err => console.error(err));
+}, []);
 
   return (
     <div className="p-4">
