@@ -7,7 +7,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await API.post("/users/register", form);
+      await API.post("/users/register", { name, email, password });
       alert("Registration successful! Please login.");
     } catch (err) {
       alert(err.response?.data?.error || "Registration failed");
