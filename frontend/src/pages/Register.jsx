@@ -4,15 +4,20 @@ import API from "../services/api";
 function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await API.post("/users/register", { name, email, password });
-      alert("Registration successful! Please login.");
-    } catch (err) {
-      alert(err.response?.data?.error || "Registration failed");
-    }
-  };
+  const handleRegister = async (e) => {
+  e.preventDefault();
+  try {
+    await API.post('/users/register', {
+      name,
+      email,
+      password
+    });
+    alert('Registration successful! Please log in.');
+  } catch (err) {
+    console.error(err);
+    alert('Registration failed. Check console for details.');
+  }
+};
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-10">
